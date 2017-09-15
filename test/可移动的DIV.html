@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+	<style>
+		div{width: 100px;height: 100px;background-color: aquamarine;}
+	</style>
+	<body>
+		<div id="dd1" class="dd-demo">1</div>
+		<div id="dd2" class="dd-demo">2</div>
+		<div id="dd3" class="dd-demo">3</div>
+		
+	</body>
+	<script>
+		//easyui的效果
+		$('#dd1').draggable();
+		$('#dd2').draggable({
+			proxy:'clone'
+		});
+		$('#dd3').draggable({
+			proxy:function(source){
+				var p = $('<div class="proxy">移动中</div>');
+				p.appendTo('body');
+				return p;
+			}
+		});
+	</script>
+</html>

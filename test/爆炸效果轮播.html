@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+            * {
+                margin: 0px;
+                padding: 0px;
+                list-style: none;
+            }
+            #main {
+                width: 800px;
+                height: 500px;
+                position: relative;
+                /*top: 50%;
+                left: 50%;*/
+
+                transform-style: preserve-3d;
+                overflow: hidden;
+            }
+            #main:hover >.left{
+            	display: block;
+            }
+            #main:hover >.right{
+            	display: block;
+            }
+            .left{
+            	left: 0;
+            }
+            .right{
+            	right: 0;
+            }
+            .btn{
+            	font-size: 66px;
+            	z-index: 99999999;
+            	color: white;
+            	position: absolute;
+            	top: 45%;
+            	display: none;
+            	cursor: pointer;
+            }
+            .bottom{
+            	list-style: none;
+            	z-index: 99999999;
+            	position: absolute;
+            	bottom: 2%;
+            	left: 40%;
+            }
+            .bottom li{
+            	float: left;
+            	margin-left: 15px;
+            }
+            .bottom li div{
+            	width: 15px;
+            	height: 15px;
+            	border-radius: 10px;
+            	background-color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="main">
+			<div class="left btn" id="left"><</div>
+        	<div class="right btn" id="right">></div>
+        	<ul class="bottom">
+        		<li>
+        			<div class="bl" tabindex="0"></div>
+        		</li>
+        		<li>
+        			<div class="bl" tabindex="1"></div>
+        		</li>
+        		<li>
+        			<div class="bl" tabindex="2"></div>
+        		</li>
+        	</ul>
+        </div>
+        
+        <script type="text/javascript">
+            var arr=["img/1.jpg","img/2.jpg","img/3.jpg"];
+            var index=0;
+            var z=9999;
+            var b;
+            var btnli=document.getElementsByClassName("bl");
+            btnli[0].style.cssText="background-color: orangered;";
+            function boom(x,y){
+                z--;
+                index=index>2?0:index;
+                var main=document.getElementById("main");
+                var xAxis=x;
+                var yAxis=y;
+                var active = document.createElement("div");
+                active.style.cssText="position: absolute;z-index: "+z+";"
+                for(var i = 0; i < yAxis; i++) {
+                    for(var j = 0; j < xAxis; j++) {
+                        var myDiv = document.createElement("div");
+                        myDiv.style.cssText += "float :left;width: " + (main.clientWidth / xAxis) + "px;height: " + (main.clientHeight / yAxis) + "px;background-image: url("+arr[index]+");";
+                        myDiv.style.cssText += "background-position: -" + (j * (main.clientWidth / xAxis)) + "px -" + i * (main.clientHeight / yAxis) + "px;";
+                        active.appendChild(myDiv);
+                    }
+                }
+                main.appendChild(active);
+                b= function() {
+                    //在调用一次绘制背景，防止爆炸背景空白，递归调用
+                    boom(x,y)
+                    allDiv = active.children;
+                    for(var i = 0; i < allDiv.length; i++) {
+                        allDiv[i].style.cssText += "transition: 2s;";
+                        allDiv[i].style.cssText += 'transform :rotateX(' + (Math.random() * 360 - 180) + 'deg) rotateY(' + (Math.random() * 360 - 180) + 'deg) translateX(' + (Math.random() * 200 - 100) + 'px) translateY(' + (Math.random() * 200 - 100) + 'px) translateZ(' + (Math.random() * 300 - 100) + 'px)';
+                        allDiv[i].style.cssText += "opacity: 0;";
+                    }
+                    setTimeout(function(){
+                        //删除执行完毕的爆炸
+                        active.parentNode.removeChild(active);
+                    },2000)
+                };
+            }
+            boom(10,10);
+            var left=document.getElementById('left');
+            var right=document.getElementById('right');
+            left.onclick=function(){
+            	if(index>0){
+            		index--;
+            	}else{
+            		index=2;
+            	}
+            	var j=index>2?0:index;
+            	for(var i = 0; i < btnli.length; i++) {
+            		if(i==j){
+            			btnli[i].style.cssText="background-color: orangered;transition: 1s;";
+            		}else{
+            			btnli[i].style.cssText="background-color: white;transition: 1s;";
+            		}
+            	}
+            	b();
+            }
+            right.onclick=function(){
+            	
+            	index=index>1?0:++index;
+            	var j=index>2?0:index;
+            	for(var i = 0; i < btnli.length; i++) {
+            		if(i==j){
+            			btnli[i].style.cssText="background-color: orangered;transition: 1s;";
+            		}else{
+            			btnli[i].style.cssText="background-color: white;transition: 1s;";
+            		}
+            	}
+            	
+            	b();
+            }
+            var inx;
+            for(var i = 0; i < btnli.length; i++) {
+        		btnli[i].onclick=function(){
+        			inx=this.tabIndex;
+        			index=inx;
+        			for(var i = 0; i < btnli.length; i++) {
+		        		if(i==inx){
+		        			btnli[i].style.cssText="background-color: orangered;transition: 1s;";
+		        		}else{
+		        			btnli[i].style.cssText="background-color: white;transition: 1s;";
+		        		}
+		        	}
+        			b();
+        		}
+        	}
+            
+            
+            
+            
+        </script>
+    </body>
+
+</html>

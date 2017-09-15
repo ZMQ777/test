@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<style>
+		.toggle_mask{
+			width: 100px;
+			height: 100px;
+			position: relative;
+			top: 500px;
+		}
+		.toggle_mask img{
+			max-width: 100%;
+			height: auto;
+			display: block;
+			position: absolute;
+		}
+		.mask{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			line-height: 100px;
+			color: white;
+			background-color: #1a355e;
+			opacity: 0.8;
+			transition: 1s;
+		}
+		.mask:hover{
+			opacity: 0;
+			cursor: pointer;
+		}
+		.ulmain{
+			position: relative;
+			width: 400px;
+			margin: 0 auto;
+		}
+		.ulmain>li{
+			float: left;
+			list-style: none;
+			position: relative;
+			width: 33%;
+			text-align: center;
+			/*border: 1px red solid;*/
+			background-color: #919191;
+		    border-right: dashed 1px #d4d4d4;
+		}
+		.ulmain>li>div{
+			position: relative;
+			padding: 10px 0; 
+		}
+		.ulmain>li:hover >div+ul>li{
+			display:block;
+		} 
+		.chul{
+			list-style: none;
+			padding: 0px;
+			position: absolute;
+			width: 100%;
+		}
+		.chul>li{
+			text-align: center;
+			display: none;
+			background-color: #999;
+			opacity: 0.6;
+		}
+	</style>
+	<body>
+<!--[if IE]>
+	<p>你在非IE中将看不到我的身影</p>
+<![endif]-->
+		<ul class="ulmain">
+			<li>
+				<div class="l">第一个li</div>
+				<ul class="chul">
+					<li>1</li>
+					<li>2</li>
+				</ul>
+			</li>
+			<li>
+				<div class="l">第二个li</div>
+				<ul class="chul">
+					<li>a</li>
+					<li>b</li>
+					<li>c</li>
+					<li>d</li>
+				</ul>
+			</li>
+			<li>
+				<div class="l">第三个li</div>
+				<ul class="chul">
+					<li>3</li>
+					<li>2</li>
+					<li>1</li>
+				</ul>
+			</li>
+		</ul>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div class="toggle_mask">
+				<img src="http://hegii.com/media/2913/recommend-03.jpg"/>
+				<div class="mask">关于我们</div>
+		</div>
+	</body>
+</html>

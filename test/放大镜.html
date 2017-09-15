@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+
+
+<!--描述：放大镜JS-->
+<script type="text/javascript" src="js/lens.js" ></script>
+
+<style>
+	#zoomdiv{
+		position: absolute;
+		background: #ffffff;
+		border:1px solid #CCCCCC;
+		display:none;
+		ext-align: center; 
+		overflow: hidden;
+		}
+	#zoomup{
+		position:absolute; 
+		background:#c0c0c0;
+		display:none;
+		filter:alpha(opacity=50);
+		opacity:.5;
+		cursor:move;
+		}
+	.zoom{
+		position:relative; 
+		width:100px; 			/*图片大小，要比图片本来大小小才有放大效果*/
+		vertical-align:bottom;/*处理IE bug*/
+		}
+		
+</style>
+<body>
+	<div style="position:relative;border:5px solid #FFF; float:left; margin-left:400px;">
+		<!--<img src="img/o_1.jpg" class="zoom" big="img/o_1.jpg"/>-->
+		<img src="img/1.jpg" class="zoom" big="img/1.jpg"/>
+	</div>
+</body>
+<script type="text/javascript">
+	zoom({width:300,height:300});
+</script>
+</html>

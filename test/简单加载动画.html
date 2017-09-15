@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript" src="js/svg-morpheus.js" ></script>
+<style>
+	body{
+		height: 792px;
+		width: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	.ttt{
+		height: 100px;
+		width: 100px;
+		padding: 20px;
+		border-color: white;
+		border-radius: 200px;
+		border-top-color: yellow;
+		border-bottom-color: blue;
+		margin-left: -50px;
+		margin-top: -50px;
+		animation: draw1 1s linear infinite forwards;
+	}
+	
+	.tt{
+		
+		height: 110px;
+		width: 110px;
+		border-color: white;
+		border-radius: 100px;
+		/*border-top-color: blue;*/
+		border-right-color: red;
+		/*border-bottom-color: yellow;*/
+		border-left-color: green;
+	 	animation: draw 1s linear infinite forwards;
+	 	margin-left: -35px;
+		margin-top: -35px;
+	}
+	.t{
+		height: 80px;
+		width: 80px;
+		border-radius: 50px;
+		border-color: white;
+		border-right-color: red;
+		border-left-color: green;
+		margin-left: -20px;
+		margin-top: -20px;
+		animation: draw2 1s linear infinite forwards;
+	}
+	.d{
+		border-width: 2px;
+		border-style: solid;
+		left: 50%;
+		top: 50%;
+		position: absolute;
+	}
+	
+	@keyframes draw {
+		0%{
+			transform:rotate(0deg);
+		}
+		100%{
+			transform:rotate(360deg);
+		}
+	}
+	@keyframes draw1 {
+		0%{
+			transform:rotate(0deg);
+		}
+		100%{
+			transform:rotate(-360deg);
+		}
+	}
+	@keyframes draw2 {
+		0%{
+			transform:rotate(30deg);
+		}
+		100%{
+			transform:rotate(-330deg);
+		}
+	}
+</style>
+	<body>
+		<div class="ttt d">
+			
+		</div>
+		<div class='d tt'>
+				
+		</div>
+		<div class="t d">
+			
+		</div>
+	</body>
+</html>
+

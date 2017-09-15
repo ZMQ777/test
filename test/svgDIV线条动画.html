@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框动画</title>
+    <style>
+        .br_hide{
+            text-decoration:none;
+        }
+        .br_hide:hover{
+            text-decoration:none;
+        }
+        .br_hide:hover text{
+            fill:#913F3F;
+        }
+        g{
+        	stroke-dasharray: 0%, 500%;stroke-dashoffset: 0%;
+        	transition: 2s;
+        	
+        }
+        .sb{
+
+        }
+        .br_hide:hover g{
+            stroke:#913F3F;
+            stroke-width:2;
+            
+            /*animation:first1 3s linear infinite;
+            -moz-animation:first1 1.5s linear;
+            -webkit-animation:first1 1.5s linear;*/
+           
+            stroke-dasharray: 500%, 0%;stroke-dashoffset: 0%;
+        }   
+        @-moz-keyframes first1
+        {
+            0%   {stroke-dasharray: 0%, 500%;stroke-dashoffset: 0%;}
+            100%  {stroke-dasharray: 500%, 0%;stroke-dashoffset: 0%;}
+        }
+        @-webkit-keyframes first1
+        {
+            0%   {stroke-dasharray: 0%, 500%;stroke-dashoffset: 0%;}
+            100%  {stroke-dasharray: 500%, 250%;stroke-dashoffset: 0%;}
+        }
+        
+        
+/*--------------------------------------------------------------------------*/      
+        .svg-border-animation {
+		    position: absolute;
+		    width: 320px;
+		    height: 60px;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		}
+		
+		.hover-text {
+		    position: absolute;
+		    line-height: 60px;
+		    width: 320px;
+		    top: 0;
+		    color: #333;
+		    font-size: 28px;
+		    text-align: center;
+		    cursor: pointer;
+		}
+		
+		.shape {
+		    fill: transparent;
+		    stroke-width: 4px;
+		    stroke: #333;
+		    
+		    stroke-dasharray: 160 520;
+		    stroke-dashoffset: -460;
+		    transition: 1.5s;
+		   /*stroke-dasharray: 0%, 500%;stroke-dashoffset: 0%;*/ /*从左上角出发*/
+		}
+		
+		.svg-border-animation:hover .hover-text {
+		    transition: 0.5s;
+		    color: #3F51B5;
+		}
+		
+		.svg-border-animation:hover .shape {
+		    /*-webkit-animation: draw 0.5s linear forwards;*/
+		    /*animation: draw 0.5s linear forwards;*/
+	        stroke-dasharray: 760;
+    		stroke-dashoffset: 0;
+    		stroke-width: 2px;
+	        stroke: #3F51B5;
+	       /*stroke-dasharray: 500%, 0%;stroke-dashoffset: 0%;*/
+		}
+		@keyframes draw {
+		    0% {
+		        stroke-dasharray: 160 520;
+		        stroke-dashoffset: -460;
+		        stroke-width: 4px;
+		    }
+		    100% {
+		        stroke-dasharray: 760;
+		        stroke-dashoffset: 0;
+		        stroke-width: 2px;
+		        stroke: #3F51B5;
+		    }
+		}	
+    </style>
+</head>
+<body>
+	
+	<a href="#" class="br_hide">
+	    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="110" height="40">
+	        <rect fill="none" stroke="#DBEAF9" stroke-width="2" width="110" height="40" class="sb"/>
+	        <text x="10" y="24">HOVER ME1</text>
+	        <g fill="none">
+	            <rect width="110" height="40" class="sb"/>
+	        </g>
+	    </svg>
+	</a>
+	
+
+
+
+	<hgroup class="svg-border-animation">
+	    <svg viewBox="0 0 320 60" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	        <rect class="shape" height="60" width="320"></rect>
+	    </svg>
+	    <div class="hover-text">HOVER ME</div>
+	</hgroup>
+	
+	
+	
+	
+</body>
+<script>
+	console.log(111);
+</script>
+</html>

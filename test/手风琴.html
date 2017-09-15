@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" href="css/jquery-ui.min.css" />
+	<script type="text/javascript" src="js/jquery.js" ></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js" ></script>
+	
+	 <style>
+  		#draggable { width: 150px; height: 150px; padding: 0.5em; }
+  	</style>
+	<body>
+		<div id="draggable" class="ui-widget-content">
+		  <p>请拖动我！</p>
+		</div>
+		
+		<div id="accordion" style="width: 300px;">
+		  <h3>部分 1</h3>
+		  <div>
+		    <p>
+		    1
+		    </p>
+		  </div>
+		  <h3>部分 2</h3>
+		  <div>
+		    <p>
+		    2
+		    </p>
+		  </div>
+		  <h3>部分 3</h3>
+		  <div>
+		    <p>
+		    	3
+		    </p>
+		    <ul>
+		      <li>List item one</li>
+		      <li>List item two</li>
+		      <li>List item three</li>
+		    </ul>
+		  </div>
+		  <h3>部分 4</h3>
+		  <div>
+		    <p>
+		    4
+		    </p>
+		  </div>
+		</div>
+</body>
+	<script>
+		$(function() {
+		    $( "#draggable" ).draggable();
+		    $( "#accordion" ).accordion({collapsible: true});
+		  });
+		  
+	</script>
+</html>
