@@ -72,7 +72,7 @@
 		
 		//滚动条滚动触发
 		window.onscroll=function(){
-			var tt = document.body.scrollTop;// 当前屏距离页面顶部距离
+			var tt = document.body.scrollTop|| document.documentElement.scrollTop;// 当前屏距离页面顶部距离
 			console.log(tt);
 			if(0<tt&&tt<90){
 				pp();
